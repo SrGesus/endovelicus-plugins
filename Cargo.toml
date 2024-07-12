@@ -1,0 +1,8 @@
+[workspace]
+members = [
+    "currencyapi"
+]
+resolver = "2"
+
+[workspace.dependencies]
+extism-pdk = "1.2"

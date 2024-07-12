@@ -1,0 +1,10 @@
+[package]
+name = "currencyapi"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+extism-pdk.workspace = true
+
+[lib]
+crate-type = ["cdylib"]
