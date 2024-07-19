@@ -43,6 +43,7 @@ name = "currencyapi"
 version = "0.0.0"
 dependencies = [
  "extism-pdk",
+ "serde",
 ]
 
 [[package]]
