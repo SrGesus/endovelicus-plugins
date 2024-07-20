@@ -1,6 +1,10 @@
+use extism_pdk::*;
 use std::collections::BTreeMap;
 
-use extism_pdk::*;
+mod config;
+mod host;
+
+pub use config::*;
 
 // Taken from entity::currency at endovelicus
 struct Currency {
@@ -8,11 +12,6 @@ struct Currency {
     pub name: String,
     pub symbol: Option<String>,
     pub rate: f64,
-}
-
-#[host_fn]
-extern "ExtismHost" {
-    fn a_python_func(input: String) -> String;
 }
 
 // Truncated version of the currency object returned by the currency api
@@ -24,19 +23,11 @@ struct ApiCurrency {
     name_plural: String,
     r#type: String,
 }
-
 struct ApiCurrencies {
     data: BTreeMap<String, ApiCurrency>,
 }
 
-fn get_url() -> Result<String, Error> {
-    Ok(config::get("url")?.unwrap_or("https://api.freecurrencyapi.com/v1".to_string()))
-}
-
-fn get_api_key() -> Result<String, Error> {
-    config::get("api_key")?.ok_or(Error::msg("Api key not found in configuration."))
-}
-
+/// Returns message
 #[plugin_fn]
 pub fn test() -> FnResult<&'static str> {
     let url = get_url()?;

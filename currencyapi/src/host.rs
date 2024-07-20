@@ -35,9 +35,8 @@ pub enum HtmlType {
 // Configuration
 #[derive(serde::Serialize)]
 pub struct ConfigVar {
-   pub name: &'static str,
-   pub html_type: HtmlType,
-   pub placeholder: &'static str,
-   pub required: bool
+    pub name: &'static str,
+    pub html_type: HtmlType,
+    pub placeholder: &'static str,
+    pub required: bool,
 }
-

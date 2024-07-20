@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 extism-pdk.workspace = true
+serde.workspace = true
 
 [lib]
 crate-type = ["cdylib"]
